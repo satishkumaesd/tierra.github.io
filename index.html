@@ -1,350 +1,451 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="img/favicon.png" type="image/png">
-    <title>Tierra Automation</title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="vendors/linericon/style.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-	<link rel="stylesheet" href="vendors/animate-css/animate.css">
-	<link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-	<link rel="stylesheet" href="vendors/swiper/css/swiper.min.css">
-	<link rel="stylesheet" href="vendors/scroll/jquery.mCustomScrollbar.css">
-	<!-- main css -->
-	<link rel="stylesheet" href="css/style.css">
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tierra Automation | Naval Retrofits, IoT & Robotics for Industry</title>
+  <meta name="description" content="Tierra Automation modernizes naval ships and smart factories with custom controllers, IoT, robotics, and bespoke electronics—replacing legacy systems with reliable, future-ready solutions." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Tierra Automation" />
+  <meta property="og:description" content="Globe-scale innovation in industrial automation—naval retrofits, smart factories, IoT & robotics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tierraautomation.in/" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="theme-color" content="#f59e0b" />
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg-soft:#f9fafb;
+      --card:#ffffff;
+      --brand:#f59e0b;
+      --brand-2:#fbbf24;
+      --text:#1f2937;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --danger:#ef4444;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px,92%);margin-inline:auto}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo img{height:40px;width:auto}
+    .nav a.btn{padding:10px 14px;border:1px solid var(--brand);border-radius:12px}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{opacity:.9}
+    .hamburger{display:none;flex-direction:column;gap:6px}
+    .hamburger span{width:28px;height:2px;background:var(--text)}
+    @media (max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+    .mobile{display:none;border-top:1px solid var(--line);background:var(--bg)}
+    .mobile.open{display:block}
+    .mobile a{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
+
+    /* Hero */
+    .hero{position:relative;padding:80px 0 40px;overflow:hidden;background:var(--bg-soft)}
+    .grid-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .eyebrow{color:var(--brand);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem}
+    h1{font-size:clamp(34px,5vw,56px);line-height:1.05;margin:12px 0 16px}
+    .lead{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:12px;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;font-weight:600;border:1px solid transparent}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#ffffff}
+    .btn-outline{border-color:var(--brand);color:var(--brand)}
+    .hero-card{background:var(--card);border:1px solid var(--line);padding:24px;border-radius:18px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+    .stat{background:var(--bg-soft);border:1px solid var(--line);padding:16px;border-radius:14px;text-align:center}
+    .stat h3{margin:0;font-size:22px;color:var(--brand)}
+    .stat p{margin:6px 0 0;color:var(--muted);font-size:.9rem}
+    @media (max-width:900px){.grid-hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)} }
+    @media (max-width:600px){.stats{grid-template-columns:1fr 1fr}}
+
+    /* Sections */
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    section .heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+    h2{font-size:clamp(26px,3.6vw,36px);margin:0;color:var(--text)}
+    .sub{color:var(--muted);max-width:70ch}
+
+    /* Services */
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);padding:20px;border-radius:16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+    .card .icon{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:var(--bg-soft);border:1px solid var(--line)}
+    .card h3{margin:6px 0 0;color:var(--brand)}
+    .card p{color:var(--muted)}
+    .card ul{margin:8px 0 0 18px;color:var(--text)}
+    @media (max-width:1000px){.cards{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.cards{grid-template-columns:1fr}}
+
+    /* Why Us */
+    .pills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .pill{padding:16px;border-radius:14px;background:var(--bg-soft);border:1px solid var(--line)}
+    .pill strong{color:var(--brand)}
+    @media (max-width:800px){.pills{grid-template-columns:1fr}}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .project{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card);box-shadow:0 2px 6px rgba(0,0,0,.04)}
+    .project .meta{padding:14px;border-top:1px solid var(--line)}
+    .chip{font-size:.75rem;padding:6px 10px;border:1px solid var(--brand);border-radius:999px;color:var(--brand);display:inline-block}
+    @media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.projects{grid-template-columns:1fr}}
+
+    /* Contact */
+    form{display:grid;gap:14px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:700px){.row{grid-template-columns:1fr}}
+    label{font-size:.9rem;color:var(--muted)}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg-soft);color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+    .form-note{color:var(--muted);font-size:.9rem}
+
+    /* Footer */
+    footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);background:var(--bg-soft)}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .foot small{opacity:.8}
+    @media (max-width:800px){.foot{flex-direction:column;align-items:flex-start}}
+
+    /* Image tweaks */
+    .icon img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+    .projects img{width:100%;height:220px;object-fit:cover;display:block}
+  </style>
+</head>
 <body>
 
-	<!-- ================Offcanvus Menu Area =================-->
-	<div class="side_menu">
-		<ul class="list menu_right">
-			<li>
-				<a href="index.html">Home</a>
-			</li>
-			<li>
-				<a href="about-us.html">About</a>
-			</li>
-		    <li>
-				<a href="project.html">Projects</a>
-			</li>
-			<li>
-				<a href="service.html">Service</a>
-			</li>
-			<li>
-				<a href="contact.html">Contact</a>
-			</li>
-		</ul>
-	</div>
-	<!--================End Offcanvus Menu Area =================-->
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container nav">
+    <a href="#top" class="logo" aria-label="Tierra Automation home"><img src="logojpg.png" alt="Tierra Automation logo" decoding="async"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-outline" href="#contact">Get a Quote</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-controls="mobile" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="container mobile" id="mobile" aria-label="Mobile Menu">
+    <a href="#services">Services</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
 
-	<!--================Canvus Menu Area =================-->
-	<div class="canvus_menu">
-		<div class="container">
-			<div class="float-right">
-				<div class="toggle_icon" title="Menu Bar">
-					<span></span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--================End Canvus Menu Area =================-->
+<!-- ===== HERO ===== -->
+<main id="top" class="hero">
+  <div class="container grid-hero">
+    <div>
+      <div class="eyebrow">Innovation • Reliability</div>
+      <h1>Modernising Naval Systems & Smart Factories</h1>
+      <p class="lead">
+        We replace outdated equipment—incl. Russian-made systems on naval ships—with custom controllers,
+        IoT and robotics. From process plants to special machines, we engineer for uptime, safety and scale.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#contact">Contact Us</a>
+        <a class="btn btn-outline" href="#projects">View Projects</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><h3>24/7</h3><p>Support Availability</p></div>
+        <div class="stat"><h3>99.9%</h3><p>Target Uptime</p></div>
+        <div class="stat"><h3>10+ yrs</h3><p>Engineering Experience</p></div>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <h3 style="margin:0 0 8px">Where we help</h3>
+      <div class="sep"></div>
+      <ul class="muted" style="margin:0 0 8px 18px">
+        <li>Naval retrofits: custom controllers & marine-grade electronics</li>
+        <li>Factory automation: IoT, motion & safety systems</li>
+        <li>Data loggers, bespoke PCBs & IoT dashboards</li>
+        <li>Robotics, vending machines & jewellery automation</li>
+        <li>Commissioning, training & AMC support</li>
+      </ul>
+      <p class="form-note">
+        Have a legacy system to replace?
+        <a href="#contact" style="color:var(--brand)">Tell us your requirements →</a>
+      </p>
+    </aside>
+  </div>
+</main>
 
-	<!--================ Start banner section =================-->
-	<section class="home-banner-area relative">
-		<div class="container-fluid p-0">
-			<div class="owl-carousel owl-banner">
-                
-                <div class="row  d-flex align-items-center justify-content-center">
-					<div class="col-lg-12">
-						<a href="#" class="logo">
-							<img src="img/logo.png" alt="">
-						</a>
-					</div>
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="container">
+    <div class="heading">
+      <h2>Core Services</h2>
+      <p class="sub">End-to-end engineering—from design and prototyping to deployment, documentation and long-term maintenance.</p>
+    </div>
 
-					<div class="col-lg-8 header-left">
-						<div class="">
-							<img class="img-fluid w-100" src="img/banner/IAMP.png" alt="">
-						</div>
-					</div>
+    <div class="cards">
+      <!-- Factory Automation -->
+      <article class="card">
+        <div class="icon">
+          <img src="https://img.icons8.com/ios-filled/50/factory.png" alt="Factory Automation logo" loading="lazy" decoding="async" width="44" height="44">
+        </div>
+        <h3>Factory Automation</h3>
+        <p>PLC/SCADA integration, motion control and safety for new builds and retrofits.</p>
+        <ul>
+          <li>VFDs, sensors, HMIs and protocol gateways</li>
+          <li>OEE dashboards & remote monitoring via IoT</li>
+          <li>Panel design, wiring & commissioning</li>
+        </ul>
+      </article>
 
-					<div class="header-right col-lg-4">
-						<h1>
-							Industrial <br>
-							Automation <br>
-						</h1>
-						<p class="pt-20">Decrease manpower and increase productivity with Tierra's Industrial automation.</p>
-					</div>
-					<div class="col-lg-12">
-						<a href="#" class="main_btn">
-							<img src="img/next.png" alt="">
-						</a>
-					</div>
-				</div>                
-				<div class="row  d-flex align-items-center justify-content-center">
-					<div class="col-lg-12">
-						<a href="#" class="logo">
-							<img src="img/logo.png" alt="">
-						</a>
-					</div>
+      <!-- Custom Electronics & Data Loggers -->
+      <article class="card">
+        <div class="icon">
+          <img src="https://img.icons8.com/ios-filled/50/circuit.png" alt="Custom Electronics & Data Loggers logo" loading="lazy" decoding="async" width="44" height="44">
+        </div>
+        <h3>Custom Electronics & Data Loggers</h3>
+        <p>Purpose-built PCB design and high-reliability data logging with secure cloud connectivity.</p>
+        <ul>
+          <li>Telemetry (MQTT/REST), alerts & reporting</li>
+          <li>Edge processing and sensor fusion</li>
+          <li>Rugged enclosures, EMI/EMC awareness</li>
+        </ul>
+      </article>
 
-					<div class="col-lg-8 header-left">
-						<div class="">
-							<img class="img-fluid w-100" src="img/banner/HAMP.jpg" alt="">
-						</div>
-					</div>
+      <!-- Robotics & Special Machines -->
+      <article class="card">
+        <div class="icon">
+          <img src="https://img.icons8.com/ios-filled/50/robot.png" alt="Robotics & Special Machines logo" loading="lazy" decoding="async" width="44" height="44">
+        </div>
+        <h3>Robotics & Special Machines</h3>
+        <p>Precision automation for vending and jewellery manufacturing, plus custom robotic cells.</p>
+        <ul>
+          <li>Custom motion, vision & calibration</li>
+          <li>Throughput, consistency & safety gains</li>
+          <li>Operator training & SOPs</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
 
-					<div class="header-right col-lg-4">
-						<h1>
-							Customized <br>
-							Home / Office <br>
-							Automation
-						</h1>
-						<p class="pt-20">
-							We provide a wide range of home/office automation devices which make your life more comfortable.
-						</p>
-					</div>
-					<div class="col-lg-12">
-						<a href="#" class="main_btn">
-							<img src="img/next.png" alt="">
-						</a>
-					</div>
-				</div>
-				<div class="row  d-flex align-items-center justify-content-center">
-					<div class="col-lg-12">
-						<a href="#" class="logo">
-							<img src="img/logo.png" alt="">
-						</a>
-					</div>
+<!-- ===== WHY US ===== -->
+<section id="why-us">
+  <div class="container">
+    <div class="heading">
+      <h2>Why Choose Tierra</h2>
+      <p class="sub">
+        Built around your priorities: <strong>Innovation</strong> that unlocks capabilities, and
+        <strong>Reliability</strong> that keeps critical operations running.
+      </p>
+    </div>
+    <div class="pills">
+      <div class="pill"><strong>Modernisation experts.</strong> Proven in replacing legacy naval and industrial systems without disrupting operations.</div>
+      <div class="pill"><strong>IoT + Robotics first.</strong> Real-time data, predictive insights and precision motion built-in.</div>
+      <div class="pill"><strong>Engineered for uptime.</strong> Redundancy, diagnostics and maintainability designed from day one.</div>
+      <div class="pill"><strong>End-to-end partner.</strong> Design, build, commission, train and maintain under one roof.</div>
+    </div>
+  </div>
+</section>
 
-					<div class="col-lg-8 header-left">
-						<div class="">
-							<img class="img-fluid w-100" src="img/banner/VAFBMP.png" alt="">
-						</div>
-					</div>
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="container">
+    <div class="heading">
+      <h2>Selected Projects</h2>
+      <p class="sub">
+        A quick look at typical engagements. We’ll add photos and more detail as needed.
+      </p>
+    </div>
 
-					<div class="header-right col-lg-4">
-						<h1>
-							Virtual Assistant<br>
-							/Feedback Machine
-						</h1>
-						<p class="pt-20">
-							Create your custom designs and start your prototype with Tierra's 3D printing services.
-						</p>
-					</div>
-					<div class="col-lg-12">
-						<a href="#" class="main_btn">
-							<img src="img/next.png" alt="">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================ End banner section ================= -->
+    <div class="projects">
+      <!-- Naval project -->
+      <article class="project">
+        <img src="images/naval-retrofit.jpg" alt="Indian Navy ship control upgrade" loading="lazy" decoding="async" width="1200" height="220">
+        <div class="meta">
+          <span class="chip">Naval Retrofit</span>
+          <h3 style="margin:10px 0 4px">Indian Navy Ship Control Upgrade</h3>
+          <p class="muted">
+            Replaced obsolete Russian-made modules with custom controllers and marine-grade IO;
+            improved reliability, diagnostics and maintainability.
+          </p>
+        </div>
+      </article>
 
-	<!--================ Start Project Area =================-->
-	<section class="section_gap project-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6">
-				<div class="main_title">
-						<h1>
-							We at<span> Tierra</span><br>
-							Make your life easier with<br>
-							<span>Customized Products</span>
-						</h1>
-						<img src="img/next.png" alt="">
-					</div>
-					<!-- single projects -->
-						<div class="single-project">
-						<img class="img-fluid" src="img/project/HA.png" alt="">
-						<div class="project-details">
-							<h4>Home Automation</h4>
-							<a href="#" class="main_btn1">Turning houses into Smart Homes: Your Future, Automated<img src="img/cnext.png" alt="">
-							</a>
-						</div>
-					</div>
-				</div>
+      <!-- Factory / IoT -->
+      <article class="project">
+        <img src="images/auto.jpg" alt="Smart factory IoT dashboard" loading="lazy" decoding="async" width="1200" height="220">
+        <div class="meta">
+          <span class="chip">IoT + PLC/SCADA</span>
+          <h3 style="margin:10px 0 4px">Smart Factory Upgrade</h3>
+          <p class="muted">OEE dashboards, protocol gateways and remote monitoring; faster troubleshooting and measurable throughput gains.</p>
+        </div>
+      </article>
 
-				<div class="col-lg-6 col-md-6">
-					<!-- single projects -->
-				<div class="single-project">
-						<img class="img-fluid" src="img/project/IA.png" alt="">
-						<div class="project-details">
-							<h4>Industrial Automation</h4>
-							<a href="#" class="main_btn1">Efficiency Redefined: Revolutionizing Industry through Automation.<img src="img/cnext.png" alt="">
-							</a>
-						</div>
-					</div>
-					<!-- single projects -->
-				<div class="single-project">
-						<img class="img-fluid" src="img/project/10.png" alt="">
-						<div class="project-details">
-							<h4>Customized Data Loggers</h4>
-							<a href="#" class="main_btn1">Our data loggers record your data and allow you to analyse it for future use.<img src="img/cnext.png" alt="">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================ End Project Area =================-->
+      <!-- Robotics / special machines -->
+      <article class="project">
+        <img src="images/je.jpg" alt="Robotics cell for precision tasks" loading="lazy" decoding="async" width="1200" height="220">
+        <div class="meta">
+          <span class="chip">Robotics</span>
+          <h3 style="margin:10px 0 4px">Jewellery Automation Cell</h3>
+          <p class="muted">Precision motion and process control for intricate operations; improved consistency and reduced manual rework.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-	<!--================ Start Service Area =================-->
-		<section class="service-area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-5 col-md-6">
-					<div class="main_title">
-						<h1>
-							We are <span>TIERRA</span><br>
-							Top Services That <br>
-							We Offerss
-						</h1>
-						<img src="img/next.png" alt="">
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-5 col-md-6">
-                    <img class="img-fluid" src="img/Service/PCBD.png" alt="">
-			        <div class="single-service">
-				        <h4>Customized PCB's</h4>
-                        <p>We craft customized pcb's for your unique needs.</p>
-					</div>
-					<!-- single service -->
-					<div class="single-service">
-                        <img class="img-fluid" src="img/Service/IEAMC.jpg" alt="">
-						<h4>Industrial Equipment AMC</h4>
-						<p>Reliability Beyond Boundaries: Your Industrial Equipment's Trusted AMC Partner.</p>
-					</div>
-				</div>
-				<div class="col-lg-5 offset-lg-1 col-md-6">
-					<!-- single service -->
-					<div class="single-service">
-                        <img class="img-fluid" src="img/Service/RE.png" alt="">
-						<h4>PCB Reverse Engineering</h4>
-						<p>Unlocking Innovation Through PCB Reverse Engineering.</p>
-					</div>
-					<!-- single service -->
-					<div class="single-service">
-                        <img class="img-fluid" src="img/Service/3D.png" alt="">
-						<h4>3D Designing</h4>
-						<p>Where Imagination Meets Reality: 3D Design Excellence.</p>
-					</div>
-                    </div>  
-				</div>
-			</div>
-	</section>
-	<!--================ End Service Area =================-->
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="heading">
+      <h2>About Tierra Automation</h2>
+      <p class="sub">Global innovation in automation—delivered with the reliability your operations demand.</p>
+    </div>
+    <div class="pills">
+      <div class="pill"><strong>What we do.</strong> Design and build custom control systems, electronics and robotics for naval, manufacturing and special-purpose machinery.</div>
+      <div class="pill"><strong>How we do it.</strong> Consult → design → prototype → deploy → document → train → support (AMC). Clean handovers, clear SLAs.</div>
+    </div>
+  </div>
+</section>
 
-	<!--================ Start Testimonial Area
-	<section class="testimonial_area">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-5">
-					<div class="main_title">
-						<h1>
-							We are <span>Loaft</span><br>
-							What Our Priority <br>
-							<span>Client’s Say</span>
-						</h1>
-						<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price.</p>
-						<img src="img/next.png" alt="">
-					</div>
-					<div class="owl-carousel active_testimonial">
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="heading">
+      <h2>Contact Us</h2>
+      <p class="sub">Tell us about your application. We’ll get back within one business day.</p>
+    </div>
 
-							<div class="quote">
-								<img class="img-fluid" src="img/quote.png" alt="">
-							</div>
-							<div class="testi_content">
-								<p class="black_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-									laboris nisi ut aliquip ex ea commodo consequat.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-							</div>
-							<div class="testi_author">
-								<div class="thumb"><img src="img/testi-author.png" alt=""></div>
-								<div class="a-desc">
-									<h6>Marvel Maison</h6>
-									<p>Chief Executive, Amazon</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 offset-lg-1">
-					<div class="testi_img">
-						<img class="img-fluid" src="img/testi-img.jpg" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- Form that builds a mailto: link and opens the user's mail client -->
+    <form id="contactForm" method="get" action="#">
+      <div class="row">
+        <div>
+          <label for="name">Name *</label>
+          <input id="name" name="from_name" required placeholder="Your full name" />
+        </div>
+        <div>
+          <label for="company">Company *</label>
+          <input id="company" name="company" required placeholder="Company / Organization" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="email">Email *</label>
+          <input id="email" name="reply_to" type="email" required placeholder="name@company.com" />
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+91-XXXXXXXXXX" pattern="[\d+\-\s()]{7,}">
+        </div>
+      </div>
+      <div>
+        <label for="message">Your Requirements *</label>
+        <textarea id="message" name="message" required placeholder="Briefly describe your application, timelines, and constraints."></textarea>
+      </div>
 
-	 End Testimonial Area =================-->
+      <!-- Honeypot spam trap (keep hidden) -->
+      <input type="text" name="website" id="website" style="display:none">
 
-	
-	<!--================ start footer Area  =================-->
-	<footer class="footer_area section_gap">
-		<div class="container">
-			<div class="row footer_inner">
-				<div class="col-lg-5 col-sm-6">
-					<aside class="f_widget ab_widget">
-						<div class="f_title">
-							<h3>About Me</h3>
-						</div>
-						<p>Welcome to Tierra Automation - Your Partner in Robotics and IoT Excellence!</p>
-					</aside>
-				</div>
-				<div class="col-lg-2">
-					<aside class="f_widget social_widget">
-						<div class="f_title">
-							<h3>Follow Me</h3>
-						</div>
-						<p>Let us be social</p>
-						<ul class="list">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						</ul>
-					</aside>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--================ End footer Area  =================-->
+      <div class="form-note">By submitting, you agree to be contacted regarding your enquiry.</div>
+      <div class="cta" style="margin:8px 0 0">
+        <button id="submitBtn" type="submit" class="btn btn-primary">Send Enquiry</button>
+        <a class="btn btn-outline" href="mailto:tierra.automation@gmail.com">Email Instead</a>
+      </div>
+    </form>
+  </div>
+</section>
 
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container foot">
+    <div class="logo">
+      <img src="logojpg.png" alt="Tierra Automation logo" loading="lazy" width="140" height="40">
+    </div>
+    <div>
+      <p><a href="mailto:tierra.automation@gmail.com">tierra.automation@gmail.com</a> | 
+         <a href="tel:+918886838876">+91 91000 11109</a></p>
+    </div>
+    <small>© <span id="year"></span> Tierra Automation. All rights reserved.</small>
+  </div>
+</footer>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/stellar.js"></script>
-	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-	<script src="vendors/isotope/isotope-min.js"></script>
-	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-	<script src="vendors/counter-up/jquery.counterup.js"></script>
-	<script src="js/mail-script.js"></script>
-	<script src="vendors/popup/jquery.magnific-popup.min.js"></script>
-	<script src="vendors/swiper/js/swiper.min.js"></script>
-	<script src="vendors/scroll/jquery.mCustomScrollbar.js"></script>
-	<script src="js/theme.js"></script>
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Mobile nav toggle
+  const hamburger=document.getElementById('hamburger');
+  const mobile=document.getElementById('mobile');
+  hamburger?.addEventListener('click',()=>{
+    const open=mobile.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded',open?'true':'false');
+  });
+
+  // Year
+  const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+
+  // Mailto form handler
+  (function(){
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
+    const recipient = "tierra.automation@gmail.com"; // your email
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      // Honeypot: drop silent if filled
+      if (form.website && form.website.value) return;
+
+      // Read values
+      const name = (document.getElementById('name').value || '').trim();
+      const company = (document.getElementById('company').value || '').trim();
+      const reply_to = (document.getElementById('email').value || '').trim();
+      const phone = (document.getElementById('phone').value || '').trim();
+      const message = (document.getElementById('message').value || '').trim();
+
+      // Basic required validation
+      if (!name || !reply_to || !message) {
+        alert('Please complete the required fields.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Preparing mail...';
+
+      // Build subject and body
+      const subject = `Website enquiry from ${name}${company ? ' - ' + company : ''}`;
+      const bodyLines = [
+        `Name: ${name}`,
+        `Company: ${company}`,
+        `Email: ${reply_to}`,
+        `Phone: ${phone}`,
+        '',
+        'Message:',
+        message
+      ];
+      const body = bodyLines.join('\n');
+
+      // Create mailto link (encode)
+      const mailto = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Open user's mail client
+      // Use window.location.href so it works in most browsers
+      window.location.href = mailto;
+
+      // Reset button text after short delay (mail client opens)
+      setTimeout(()=>{
+        btn.disabled = false;
+        btn.textContent = 'Send Enquiry';
+        form.reset();
+      }, 1000);
+    });
+  })();
+</script>
+
 </body>
-
 </html>
